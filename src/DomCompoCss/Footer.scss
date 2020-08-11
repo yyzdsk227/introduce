@@ -1,0 +1,47 @@
+/* footer */
+footer {
+  .inner {
+    padding: 0;
+    border-top: 1px solid #eee;
+  }
+
+  .site-links {
+    display: flex;
+    padding-left: 0px;
+
+    li {
+      font-size: 12px;
+      padding-top: 21px;
+      // top: 50%;
+      // left: 50%;
+      // transform: translate(-50%, -50%);
+      // position: absolute;
+      color: #767676;
+      list-style: none;
+
+      margin: auto;
+      a {
+        color: #4078c0;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+  .logo {
+    background-image: url("../pub1/Iran-copyright.jpg");
+    background-size: 84px;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 103px;
+    height: 45px; /*요소 크기까지 설정해야 완벽가운데배치*/
+    &:hover {
+      fill: #4078c0;
+    }
+  }
+}

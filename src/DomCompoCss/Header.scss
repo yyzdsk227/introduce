@@ -1,0 +1,161 @@
+@import "../UiCompo/lets";
+@import "../UiCompo/mixin-query";
+
+/* header */
+header {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.75);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.75);
+  background: #fff;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+  .inner {
+    height: 68px;
+  }
+  .menu-group {
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+  .logo {
+    margin-left: 20px;
+    margin-right: 10px;
+    a {
+      background-image: url("../pub1/md.png");
+      background-size: 31px 31px;
+      background-repeat: no-repeat;
+      width: 31px;
+      height: 31px;
+
+      display: block;
+      text-indent: -9999px;
+      // &:hover {
+      // }
+    }
+  }
+  @include xmobile {
+    .weathering {
+      position: absolute;
+      display: flex;
+      right: 20px;
+
+      li {
+        list-style: none;
+        margin-left: 10px;
+      }
+      li:first-child {
+        display: none;
+      }
+    }
+  }
+
+  .main-menu {
+    display: flex;
+    padding-left: 20px;
+    li {
+      list-style: none;
+      a {
+        display: block; /*a는 인라인태그 패딩을 재대로못받을 */
+        padding: 10px;
+        color: #000;
+        &:hover {
+          color: #4078c0;
+        }
+      }
+    }
+    @include xmobile {
+      li:last-child {
+        display: none;
+      }
+    }
+  }
+}
+
+#toggle-btn {
+  display: none;
+  @include mobile {
+    display: block;
+  }
+  background: url("../pub1/toggle-btn.svg");
+  width: 18px;
+  height: 24px;
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  cursor: pointer;
+  text-indent: -9999px;
+}
+
+// 반응형 헤더 메뉴 일괄 수정
+@include mobile {
+  header {
+    .inner {
+      max-width: none;
+      height: auto;
+      padding: 0 20px;
+    }
+    .menu-group {
+      float: none;
+      display: block;
+    }
+    // .weather-show {
+    //   float: none;
+    //   display: block;
+    //   padding: 10px 0 20px;
+    //   ul {
+    //     display: flex;
+    //     li {
+    //       border: 1px solid powderblue;
+    //     }
+    //   }
+    // }
+    .logo {
+      padding: 12px 0;
+      width: 100px;
+      position: relative;
+    }
+    .weathering {
+      position: absolute;
+      display: flex;
+      top: 5px;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      li {
+        list-style: none;
+        margin-left: 10px;
+      }
+      li:first-child {
+        background-image: url(../pub1/re_fresh.jpg);
+        background-size: 25px;
+        background-repeat: no-repeat;
+        left: 0px;
+        top: 0px;
+        width: 33px;
+        height: 50px;
+        position: absolute;
+        cursor: pointer;
+        // top: 16px;
+        // right: 20px;
+      }
+    }
+    .main-menu {
+      display: block;
+      margin-bottom: 10px;
+      li {
+        border-top: 1px solid #e5e5e5;
+        // a {
+        //   padding: 16px;
+        // }
+      }
+    }
+    .toggle {
+      display: none;
+      &.on {
+        display: block;
+      }
+    }
+  }
+}

@@ -1,0 +1,67 @@
+@import "../UiCompo/lets";
+@import "../UiCompo/mixin-query";
+
+.section--learning {
+  margin-top: 15px;
+  margin-left: 20px;
+  margin-right: 20px;
+  background-image: linear-gradient(to bottom, #defefe, #ffffeb);
+  border-radius: 4em;
+
+  @include xtablet {
+    width: 66%;
+  }
+
+  .buttoning {
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+  }
+  .learning {
+    padding: 120px;
+    img {
+      @include sgmobile {
+        top: 45%;
+        width: 205px;
+        height: 150px;
+      }
+      @include smoblet {
+        top: 45%;
+        width: 310px;
+        height: 150px;
+      }
+      width: 350px;
+      height: 200px;
+      top: 55%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      position: absolute;
+      text-indent: -9999px;
+    }
+  }
+  ul {
+    @include tablet {
+      top: 200px;
+    }
+    top: 110%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    text-align: center;
+    padding-left: 0px;
+    li {
+      list-style: none;
+    }
+    p {
+      @include tablet {
+        position: absolute;
+        top: -200px;
+        left: -100px;
+        width: 200px;
+        text-align: center;
+        font: message-box;
+      }
+    }
+  }
+}

@@ -1,0 +1,106 @@
+@import "../UiCompo/lets";
+@import "../UiCompo/mixin-query";
+
+.section--profile {
+  margin: 0px 20px;
+  margin-top: 15px;
+  // border: 1px solid red;
+  @include xtablet {
+    width: 33%;
+  }
+}
+
+.profile {
+  padding: 5px 25px;
+
+  ul {
+    display: flex;
+    padding-left: 0px;
+    text-align: center;
+
+    @include desktop {
+      left: 13%;
+      position: absolute;
+    }
+
+    li {
+      list-style: none;
+
+      @include sgmobile {
+        // border: 1px solid powderblue;
+        width: 50%;
+        height: 185px;
+      }
+
+      @include smoblet {
+        // border: 1px solid powderblue;
+        width: 33%;
+        height: 160px;
+      }
+      img {
+        @include sgmobile {
+          width: 85px;
+          height: 100px;
+        }
+        @include smoblet {
+          width: 100px;
+          height: 100px;
+        }
+        @include tabtop {
+          width: 230px;
+          height: 230px;
+        }
+        @include desktop {
+          width: 300px;
+          height: 300px;
+        }
+      }
+      p:last-child {
+        margin: 5px 0;
+      }
+    }
+
+    li:nth-child(2) {
+      @include sgmobile {
+        display: none;
+      }
+    }
+    li:nth-child(3) {
+      @include mobile {
+        display: none;
+      }
+    }
+
+    @include tablet {
+      img:nth-child(2) {
+        display: none;
+      }
+      strong {
+        display: none;
+      }
+    }
+
+    @include xtablet {
+      li:not(:first-child) {
+        display: none;
+      }
+      li:first-child {
+        img:first-child {
+          display: none;
+        }
+        p {
+          display: none;
+        }
+        strong {
+          display: block;
+        }
+      }
+    }
+
+    li:first-child {
+      p {
+        margin: 5px 0px;
+      }
+    }
+  }
+}

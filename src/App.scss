@@ -1,0 +1,40 @@
+@import "./UiCompo/lets";
+@import "./UiCompo/mixin-query";
+/* common */
+.body__container {
+  /* background: tomato; */
+
+  font-family: "Lovers Quarrel", cursive;
+  font-size: 23px;
+  font-weight: 500;
+  color: #000;
+}
+
+a {
+  text-decoration: none;
+}
+
+@include mobile {
+  .flex_content {
+    /* not holy grail */
+  }
+  canvas,
+  .playmodal {
+    display: none;
+  }
+}
+
+@include xmobile {
+  canvas {
+    display: block;
+    width: 100%;
+    height: 350px;
+  }
+}
+
+@include xtablet {
+  .flex_content {
+    display: flex;
+    height: 350px;
+  }
+}

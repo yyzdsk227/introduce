@@ -1,0 +1,38 @@
+.section--visual {
+  background-image: url("../pub1/20200727_164852-1.jpg");
+  background-repeat: no-repeat;
+  background-position: bottom top;
+  background-size: cover;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* width: 100%; 
+   height: 100%; 덮음 */
+    bottom: 0;
+    right: 0; /* 덮움 동일효과 */
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+
+  .inner {
+    padding: 160px 0; /* wow */
+    display: flex;
+  }
+
+  .summary {
+    flex-basis: 0; /* ingang check 밑속성포함=>flex: 1*/
+    flex-grow: 1;
+    margin-right: 90px;
+    &__title {
+      color: #fff;
+      font-size: 54px;
+      text-shadow: 0 1px 1px rgba(0, 0, 0, 0.25), 0 1px 25px rgba(0, 0, 0, 0.75);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      position: absolute;
+    }
+  }
+}
