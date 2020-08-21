@@ -1,5 +1,5 @@
-@import "../UiCompo/lets";
-@import "../UiCompo/mixin-query";
+@import '../UiCompo/lets';
+@import '../UiCompo/mixin-query';
 
 .section {
   position: relative;
@@ -45,7 +45,7 @@
 
 .clearfix {
   &::after {
-    content: "";
+    content: '';
     clear: both;
     display: block;
   }

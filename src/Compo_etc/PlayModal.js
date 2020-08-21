@@ -1,9 +1,10 @@
-import React, { useState, useContext } from "react";
-import Modal from "react-awesome-modal";
+import React, { useState, useContext } from 'react';
+import Modal from 'react-awesome-modal';
 // import NumberBaseball from './NumberBaseball';
 // import TicTaeToe from './TicTaeToe';
-import stateContext from "../Context/StateContext";
-import Tictaetoe from "./Tictaetoc";
+import stateContext from '../Context/StateContext';
+import Tictaetoe from './Tictaetoc';
+import './modal.scss';
 
 const PlayModal = () => {
   const abccontext = useContext(stateContext);
@@ -23,12 +24,12 @@ const PlayModal = () => {
   };
 
   return (
-    <section className="playModal" style={{ textAlign: "center" }}>
-      <li style={{ listStyle: "none" }}>
+    <section className="playModal" style={{ textAlign: 'center' }}>
+      <li style={{ listStyle: 'none' }}>
         <a
           href="#"
           onClick={openModal}
-          style={{ display: "block", padding: "10px" }}
+          style={{ display: 'block', padding: '10px' }}
         >
           Let's Play??
         </a>
@@ -39,17 +40,17 @@ const PlayModal = () => {
         height="400"
         effect="fadeInUp"
         onClickAway={() => {}}
-        style={{ position: "relative" }}
+        style={{ position: 'relative' }}
       >
         <div
           style={{
-            left: "50%",
-            position: "absolute",
-            transform: "translate(-50%)",
+            left: '50%',
+            position: 'absolute',
+            transform: 'translate(-50%)',
           }}
         >
           <Tictaetoe />
-          <a href="#" onClick={closeModal} style={{ border: "1px solid cyan" }}>
+          <a href="#" onClick={closeModal} style={{ border: '1px solid cyan' }}>
             Close
           </a>
         </div>

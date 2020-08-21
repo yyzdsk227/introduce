@@ -1,5 +1,5 @@
-@import "../UiCompo/lets";
-@import "../UiCompo/mixin-query";
+@import '../UiCompo/lets';
+@import '../UiCompo/mixin-query';
 
 /* header */
 header {
@@ -23,7 +23,7 @@ header {
     margin-left: 20px;
     margin-right: 10px;
     a {
-      background-image: url("../pub1/md.png");
+      background-image: url('../pub1/md.png');
       background-size: 31px 31px;
       background-repeat: no-repeat;
       width: 31px;
@@ -78,7 +78,7 @@ header {
   @include mobile {
     display: block;
   }
-  background: url("../pub1/toggle-btn.svg");
+  background: url('../pub1/toggle-btn.svg');
   width: 18px;
   height: 24px;
   position: absolute;
@@ -103,12 +103,8 @@ header {
     // .weather-show {
     //   float: none;
     //   display: block;
-    //   padding: 10px 0 20px;
     //   ul {
     //     display: flex;
-    //     li {
-    //       border: 1px solid powderblue;
-    //     }
     //   }
     // }
     .logo {
