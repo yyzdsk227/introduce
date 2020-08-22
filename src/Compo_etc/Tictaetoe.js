@@ -1,11 +1,15 @@
-import React, { useContext, useReducer, useEffect } from "react";
-import stateContext from "../Context/StateContext";
-import Table from "./Table";
-import ToeReducer, { SET_WINNER, RESET_GAME, GET_TURN } from "./ToeReducer";
+import React, { useReducer, useEffect } from 'react';
+
+import Table from './Table';
+import T3_useReducer, {
+  initialState,
+  SET_WINNER,
+  RESET_GAME,
+  GET_TURN,
+} from './T3_useReducer';
 
 const Tictaetoe = () => {
-  const TaetoeContext = useContext(stateContext);
-  const [state, dispatch] = useReducer(ToeReducer, TaetoeContext);
+  const [state, dispatch] = useReducer(T3_useReducer, initialState);
   const { winner, latestWinner, turn, tabledata, recentcell } = state;
 
   useEffect(() => {
@@ -125,7 +129,7 @@ const Tictaetoe = () => {
         });
       });
       if (all) {
-        console.log("all filled");
+        console.log('all filled');
         // alert('승부를 내주시길,, ㅎㅎㅎ.');
         dispatch({ type: RESET_GAME });
       } else {
@@ -137,7 +141,11 @@ const Tictaetoe = () => {
   return (
     <div>
       <Table tabledata={tabledata} dispatch={dispatch} winner={winner} />
-      {latestWinner && <div>{latestWinner}님의 승리!</div>}
+      {latestWinner ? (
+        <div>전판 {latestWinner}님의 승리</div>
+      ) : (
+        <div>전판 승부안남</div>
+      )}
     </div>
   );
 };

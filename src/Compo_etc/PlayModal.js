@@ -1,15 +1,10 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import Modal from 'react-awesome-modal';
-// import NumberBaseball from './NumberBaseball';
-// import TicTaeToe from './TicTaeToe';
-import stateContext from '../Context/StateContext';
-import Tictaetoe from './Tictaetoc';
-import './modal.scss';
+import Tictaetoe from './Tictaetoe';
+import '../Compo_etcCss/modalTextAny.scss';
 
 const PlayModal = () => {
-  const abccontext = useContext(stateContext);
-
-  const [visible, SetVisible] = useState(abccontext);
+  const [visible, SetVisible] = useState(false);
 
   const openModal = () => {
     SetVisible({
@@ -29,7 +24,7 @@ const PlayModal = () => {
         <a
           href="#"
           onClick={openModal}
-          style={{ display: 'block', padding: '10px' }}
+          style={{ display: 'block', padding: '10px', fontSize: '58px' }}
         >
           Let's Play??
         </a>

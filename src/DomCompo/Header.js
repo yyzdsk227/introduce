@@ -1,12 +1,20 @@
-import React, { memo } from 'react';
+import React, { memo, useEffect } from 'react';
 import '../DomCompoCss/Header.scss';
 import '../DomCompoCss/SectionCommon.scss';
-import axios from 'axios';
-import { GetNalssi } from '../Compo_etc/GetNalssi';
 import PlayModals from '../Compo_etc/PlayModal';
+import { nalUtilsThunk } from '../Const_etc/nalUtils';
+import { useDispatch, useSelector } from 'react-redux';
 
 const Header = memo(() => {
-  const [nalssi, SetNalssi] = GetNalssi();
+  const { temperature, name } = useSelector((state) => state.NalReducer);
+
+  console.log(useSelector((state) => state.NalReducer));
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(nalUtilsThunk());
+  }, [temperature]);
 
   return (
     <header>
@@ -18,12 +26,11 @@ const Header = memo(() => {
 
           <ul className="main-menu toggle">
             <li>
-              <a href="#skills">Skils</a>
+              <a href="#skills">Skills</a>
             </li>
 
             <li>
               <PlayModals />
-              {/* link로 컴포넌트 연결해야할듯 */}
             </li>
           </ul>
         </div>
@@ -31,36 +38,12 @@ const Header = memo(() => {
         <div className="float--right">
           <ul className="weathering">
             <li
-              onClick={
-                nalssi.isloadding
-                  ? () => {}
-                  : () => {
-                      SetNalssi({
-                        isloadding: true,
-                      });
-
-                      setTimeout(() => {
-                        axios
-                          .get(
-                            'http://api.openweathermap.org/data/2.5/weather?q=Seoul&appid=bd8c36da2c4510a870343fdbd5739b54',
-                          )
-                          .then((response) => response.data)
-                          .then((data) => {
-                            SetNalssi({
-                              temperature: Math.floor(data.main.temp - 273.15),
-                              icon: data.weather[0].icon,
-                              name: data.weather[0].main,
-                              isloadding: false,
-                            });
-                          });
-                      }, 1500);
-                    }
-              }
+              onClick={() => {
+                dispatch(nalUtilsThunk());
+              }}
             ></li>
-            <li>
-              {nalssi.isloadding ? 'loading..' : `${nalssi.temperature}'C`}
-            </li>
-            <li>{nalssi.isloadding ? '' : nalssi.name}</li>
+            <li>{`${temperature}'C`}</li>
+            <li>{name}</li>
           </ul>
         </div>
         <div id="toggle-btn">Header Menu Toggle Button</div>

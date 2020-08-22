@@ -1,14 +1,15 @@
-import React, { useState, useEffect, useContext, memo } from "react";
-import "../DomCompoCss/SectionCommon.scss";
-import "../DomCompoCss/Learning.scss";
+import React, { memo } from 'react';
+import '../DomCompoCss/SectionCommon.scss';
+import '../DomCompoCss/Learning.scss';
 
-import learns from "../Const_etc/learns";
-import stateContext from "../Context/StateContext";
+import learns from '../Const_etc/learns';
+import { useDispatch, useSelector } from 'react-redux';
+import { learningPlus, learningMinus } from '../action';
 
 const Learning = memo(() => {
-  const initAbouts = useContext(stateContext);
+  const { num } = useSelector((state) => state.LrnReducer);
 
-  const [abouts, setAbouts] = useState(initAbouts);
+  const dispatch = useDispatch();
 
   return (
     <section className="section section--learning">
@@ -16,57 +17,25 @@ const Learning = memo(() => {
         <div className="buttoning" id="buttoning">
           <button
             onClick={() => {
-              abouts.num < 3
-                ? setAbouts({
-                    title: learns[abouts.num + 1].title,
-                    about: learns[abouts.num + 1].isAbout,
-                    num: abouts.num + 1,
-                  })
-                : setAbouts({
-                    num: 0,
-                  });
+              dispatch(learningPlus());
             }}
           >
             +
           </button>
           <button
             onClick={() => {
-              abouts.num > 0
-                ? setAbouts({
-                    title: learns[abouts.num - 1].title,
-                    about: learns[abouts.num - 1].isAbout,
-                    num: abouts.num - 1,
-                  })
-                : setAbouts({
-                    num: 3,
-                  });
+              dispatch(learningMinus());
             }}
           >
             -
           </button>
         </div>
         <div className="learning" id="learning">
-          {abouts.num !== 3 ? (
-            <img src={learns[abouts.num].Img_mark} alt="g"></img>
-          ) : (
-            <></>
-          )}
+          <img src={learns[num].Img_mark} alt="g"></img>
         </div>
         <ul>
-          {abouts.num !== 3 ? (
-            <>
-              <li>{learns[abouts.num].title} </li>
-              <li>{learns[abouts.num].isAbout}</li>
-            </>
-          ) : (
-            <p>
-              {learns[abouts.num].title}
-              <br />
-              <br />
-
-              {learns[abouts.num].isAbout}
-            </p>
-          )}
+          <li>{learns[num].title} </li>
+          <li>{learns[num].isAbout}</li>
         </ul>
       </div>
       {/* </div> */}

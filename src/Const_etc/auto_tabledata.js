@@ -25,14 +25,3 @@ export const auto_tabledata = [
   [4, 3],
   [4, 4],
 ];
-
-export const auto_tabledataArray = new Array();
-
-for (let i = 0; i < 5; i++) {
-  //auto_tabledataArray.push([i]);
-  for (let j = 0; j < 5; j++) {
-    auto_tabledataArray.push([i, j]);
-  }
-}
-
-console.log(auto_tabledataArray);

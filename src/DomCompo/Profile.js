@@ -1,11 +1,11 @@
-import React from "react";
-import "../DomCompoCss/SectionCommon.scss";
-import "../DomCompoCss/Profile.scss";
-import Img_show1 from "../pub1/epl.png";
-import Img_show1_5 from "../pub1/badok.png";
-import Img_show2 from "../pub1/netflix.jpg";
-import Img_show3 from "../pub1/osse.jpg";
-import Img_show2_5 from "../pub1/mlb.jpg";
+import React from 'react';
+import '../DomCompoCss/SectionCommon.scss';
+import '../DomCompoCss/Profile.scss';
+import Img_show1 from '../pub1/epl.png';
+import Img_show1_5 from '../pub1/badok.png';
+import Img_show2 from '../pub1/netflix.jpg';
+import Img_show3 from '../pub1/osse.jpg';
+import Img_show2_5 from '../pub1/mlb.jpg';
 
 const Profile = () => {
   return (
@@ -17,7 +17,7 @@ const Profile = () => {
               <img src={Img_show1} alt="g"></img>
               <img src={Img_show1_5} alt="g"></img>
               <p>liked</p>
-              <strong>good</strong>
+              <strong>trace..</strong>
             </li>
             <li>
               <img src={Img_show2} alt="g"></img>
@@ -32,13 +32,6 @@ const Profile = () => {
               <p>2019.1-2020.6 worked </p>
             </li>
           </ul>
-          {/* <ul>
-            <li>name: </li>
-            <li>sex: </li>
-            <li>birth: </li>
-            <li>github: </li>
-            <li>skils: </li>
-          </ul> */}
         </div>
       </div>
     </section>
